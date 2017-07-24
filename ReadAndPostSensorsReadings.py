@@ -13,7 +13,7 @@ sensor_args = { '11': Adafruit_DHT.DHT11,
 if len(sys.argv) == 4 and sys.argv[1] in sensor_args:
     sensor = sensor_args[sys.argv[1]]
     pin = sys.argv[2]
-    #Where the data will be sent: POST API URL  
+    #Where the data will be sent: POST API URL
     endpoint = sys.argv[3]
 
 else:
@@ -37,12 +37,8 @@ if humidity is not None and temperature is not None:
 
     # Read sensor values. Prepare our sensor data in JSON format.
     payload = json.dumps({
-        "state": {
-            "reported": {
-                "temperature": round(temperature, 1),
-                "humidity": round(humidity, 1)
-            }
-        }
+        "temperature": round(temperature, 1),
+        "humidity": round(humidity, 1)
     })
 
     #Test endpoint
