@@ -10,3 +10,5 @@ AM2302 and Raspberry Pi 2 B
 * Adafruit_Python_DHT libraries https://github.com/adafruit/Adafruit_Python_DHT
 * Django REST framework  http://www.django-rest-framework.org
 
+## TODO
+Display reading stored on the database on a timeline chart.
