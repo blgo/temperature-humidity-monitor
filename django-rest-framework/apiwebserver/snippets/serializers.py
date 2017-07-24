@@ -5,10 +5,6 @@ class SnippetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Snippet
         fields = ('created','id','humidity','temperature')
-    #id = serializers.IntegerField(read_only=True)
-    #created = serializers.DateTimeField(required=False)
-    #temperature = serializers.CharField(required=True, allow_blank=False, max_length=10)
-    #humidity = serializers.CharField(required=True, allow_blank=False, max_length=10)
 
     def create(self, validated_data):
         """
