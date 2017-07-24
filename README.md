@@ -6,7 +6,7 @@ This project shows how to read a temperature and humidity sensor to send the rea
 AM2302 and Raspberry Pi 2 B 
 
 ## Dependencies
-Python 2.7.9
-Adafruit_Python_DHT libraries https://github.com/adafruit/Adafruit_Python_DHT
-Django REST framework  http://www.django-rest-framework.org
+* Python 2.7.9
+* Adafruit_Python_DHT libraries https://github.com/adafruit/Adafruit_Python_DHT
+* Django REST framework  http://www.django-rest-framework.org
 
