@@ -10,8 +10,8 @@ from django.db import models
 
 class Snippet(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    temperature = models.CharField(max_length=10, blank=False, default='None')
-    humidity = models.CharField(max_length=10, blank=False, default='None')
+    temperature = models.FloatField(blank=False, default='None')
+    humidity = models.FloatField(blank=False, default='None')
 
     class Meta:
         #Note the ,: it causes the variable to be created as a 'list', which is required because a single value cannot be orderned.
