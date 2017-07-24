@@ -2,6 +2,7 @@
 
 ```
 virtualenv env
+# Use the virtual environment we have created
 source env/bin/activate
 ```
 
@@ -11,6 +12,12 @@ Install the package requirements.
 pip install django
 
 pip install djangorestframework
-
-pip install pygments  # We'll be using this for the code highlightingo
 ```
+Initialise database
+
+```
+python manage.py makemigrations snippets
+python manage.py migrate
+python manage.py runserver
+```
+
