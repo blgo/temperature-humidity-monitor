@@ -12,3 +12,7 @@ AM2302 and Raspberry Pi 2 B
 
 ## TODO
 Display reading stored on the database on a timeline chart.
+
+Dockerise application and publish image on Docker hub.
+
+Test application on AWS-EC2 using Docker image.
