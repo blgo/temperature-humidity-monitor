@@ -34,7 +34,7 @@ humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 # If this happens try again!
 if humidity is not None and temperature is not None:
     print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity))
-
+    headers = {'Content-type': 'application/json'}
     # Read sensor values. Prepare our sensor data in JSON format.
     payload = json.dumps({
         "temperature": round(temperature, 1),
@@ -47,7 +47,7 @@ if humidity is not None and temperature is not None:
 
     print("Sending sensor data to API endpoint: ", payload)
 
-    response = requests.post(endpoint, data=payload)
+    response = requests.post(endpoint, data=payload,headers=headers)
 
     print(response.text) #TEXT/HTML
     print(response.status_code, response.reason) #HTTP
