@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import sys
+import datetime
 
 import Adafruit_DHT
 
@@ -33,8 +34,7 @@ humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 # guarantee the timing of calls to read the sensor).
 # If this happens try again!
 if humidity is not None and temperature is not None:
-    print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity))
-    headers = {'Content-type': 'application/json'}
+    # print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity))
     # Read sensor values. Prepare our sensor data in JSON format.
     payload = json.dumps({
         "temperature": round(temperature, 1),
@@ -42,16 +42,17 @@ if humidity is not None and temperature is not None:
     })
 
     #Test endpoint
-    response = requests.get(endpoint)
-    print("Testing Endpoint: ",response.text)
+    payload = { "date" : datetime.datetime.now().isoformat(), "room" : "bedroom", "temperature" : temperature, "humidity" : humidity }
+    headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-    print("Sending sensor data to API endpoint: ", payload)
+    #print("Sending sensor data to API endpoint: ", payload)
 
-    response = requests.post(endpoint, data=payload,headers=headers)
+    response = requests.post(endpoint, data=json.dumps(payload), headers=headers)
+    #print(response.text)
+    #print(response.status_code, response.reason) #HTTP
 
-    print(response.text) #TEXT/HTML
-    print(response.status_code, response.reason) #HTTP
 
 else:
     print('Failed to get reading. Try again!')
     sys.exit(1)
+
